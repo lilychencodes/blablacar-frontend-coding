@@ -1,0 +1,56 @@
+.trip {
+  border-radius: 16px;
+  box-shadow: rgb(0 0 0 / 16%) 0px 1pt 4pt, rgb(0 0 0 / 8%) 0px 2pt 8pt;
+  list-style-type: none;
+  background-color: rgb(255, 255, 255);
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.trip-detail {
+  padding: 16px;
+}
+
+.trip-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.driver-info {
+  border-top: 1px solid rgb(237, 237, 237);
+  margin-top: 20px;
+  padding-top: 20px;
+}
+
+.waypoints {
+  display: flex;
+  flex-direction: column;
+}
+
+.waypoint-left-width {
+  width: 80px;
+}
+
+.waypoint-divider {
+  width: 7px;
+  height: 7px;
+  border: 2px solid rgb(5, 71, 82);
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.duration-divider {
+  width: 4px;
+  height: 100%;
+  background: rgb(5, 71, 82);
+  margin-left: 3px;
+  margin-right: 10px;
+}
+
+.gray-text {
+  color: rgb(112, 140, 145);
+}
+
+.trip-duration {
+  height: 50px;
+}
