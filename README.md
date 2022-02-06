@@ -2,7 +2,7 @@
 Fetch from [BlaBlaCar's api](https://support.blablacar.com/hc/en-gb/articles/360014199820--Search-V3-API-Documentation) to get the list of trip from Paris to Lyon for the current day.
 
 ### Demo
-[Demo link](https://lilysdemo.web.app);
+[Demo link](https://lilysdemo.web.app)
 
 <img src="https://user-images.githubusercontent.com/9043536/152699002-b7643128-151a-42e1-b738-27a09e8ce918.png" width="500" />
 
