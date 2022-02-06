@@ -35,7 +35,7 @@ export default function useFetch(pageNum: number) {
   const [totalCount, setTripCount] = useState<number>(0);
   const [loading, setLoading] = useState<boolean>(false);
 
-  const fetchTripsByQuery = async () => {
+  const fetchTripsByQuery = useCallback(async () => {
     try {
       setLoading(true);
 
@@ -55,7 +55,7 @@ export default function useFetch(pageNum: number) {
     } catch (err) {
       console.log(err);
     }
-  };
+  }, [cursor]);
 
   useEffect(() => {
     fetchTripsByQuery();
