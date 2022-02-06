@@ -2,19 +2,21 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 
 import moment from 'moment';
 
-import { fetchTrips } from './utilities/trips';
+import useFetch from './utilities/trips';
 
-import type { TripProps } from './components/Trip';
 import Trip from './components/Trip';
+import type { TripProps } from './components/Trip';
 
 import './App.css';
 
 const App: React.FC = () => {
-  const [tripList, setTrips] = useState<TripProps[]>([]);
-  const [cursor, setCursor] = useState<string>();
-  const [totalCount, setTripCount] = useState<number>(0);
-  const [loading, setLoading] = useState<boolean>(false);
   const [pageNum, setPageNum] = useState<number>(0);
+
+  const { loading, tripList, totalCount }: {
+    loading: boolean;
+    tripList: TripProps[];
+    totalCount: number;
+  } = useFetch(pageNum);
 
   const observer: any = useRef();
 
@@ -33,29 +35,7 @@ const App: React.FC = () => {
     [loading, tripList, totalCount]
   );
 
-  const fetchTripsFromApi = async () => {
-    setLoading(true);
-
-    const tripsData = await fetchTrips(cursor);
-
-    const { trips, next_cursor, search_info } = tripsData;
-
-    const newTripList = [
-      ...tripList,
-      ...trips,
-    ];
-
-    setTrips(newTripList);
-    setCursor(next_cursor);
-    setTripCount(search_info.count);
-    setLoading(false);
-  }
-
   const numTripsFetched = tripList.length;
-
-  useEffect(() => {
-    fetchTripsFromApi();
-  }, [pageNum]);
 
   return (
     <div className="main">

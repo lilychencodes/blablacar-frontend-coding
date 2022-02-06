@@ -1,6 +1,6 @@
-import { fetchTrips } from './trips';
+import useFetch from './trips';
 
-describe('fetchTrips', () => {
+describe('useFetch', () => {
   it('fetches trips between 2 locations', () => {
 
   });
