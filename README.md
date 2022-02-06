@@ -1,4 +1,5 @@
 # BlaBlaCar Frontend challenge
+Fetch from [BlaBlaCar's api](https://support.blablacar.com/hc/en-gb/articles/360014199820--Search-V3-API-Documentation) to get the list of trip from Paris to Lyon for the current day.
 
 ### Demo
 
@@ -11,7 +12,7 @@
 1. From the root directory, run `npm test` from the terminal.
 
 ## Requirements
-- [ ] Fetch BlaBlaCar trips between Paris and Lyon for the current day.
-- [ ] Render these trips results. You can display the minimum information for each result (from, to, driver name, driver picture, price, etc).
-- [ ] Use pagination to display search results.
-- [ ] Use unit tests.
+- [x] Fetch BlaBlaCar trips between Paris and Lyon for the current day.
+- [x] Render these trips results.
+- [x] Use pagination to display search results.
+- [x] Use unit tests.
