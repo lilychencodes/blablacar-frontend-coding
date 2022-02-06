@@ -4,7 +4,6 @@ const PARIS_COORD = '48.8566,2.3522';
 const LYON_COORD = '45.764043,4.835659';
 
 export async function fetchTrips(cursor?: string) {
-  // Make sure date is in Paris local time
   const date = moment().format('YYYY-MM-DDTHH:mm:ss');
 
   const url = new URL(

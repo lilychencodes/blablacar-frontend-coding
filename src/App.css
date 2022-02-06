@@ -22,3 +22,9 @@
 .trip-list {
   width: 100%;
 }
+
+.loader {
+  color: rgb(112, 140, 145);
+  font-weight: 600;
+  padding: 20px 0;
+}
