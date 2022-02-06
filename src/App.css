@@ -15,11 +15,20 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  max-width: 600px;
   padding: 40px 0;
+  height: 100vh;
+}
+
+.trip-list-container {
+  width: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .trip-list {
+  max-width: 600px;
   width: 100%;
 }
 
@@ -27,4 +36,9 @@
   color: rgb(112, 140, 145);
   font-weight: 600;
   padding: 20px 0;
+}
+
+.header-text {
+  text-align: center;
+  padding-bottom: 20px;
 }

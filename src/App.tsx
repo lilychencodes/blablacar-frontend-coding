@@ -60,25 +60,29 @@ const App: React.FC = () => {
   return (
     <div className="main">
       <div className="container">
-        <div>
-          From Paris to Lyon for {moment().format('ll')}
+        <div className="header-text">
+          <div>
+            From Paris to Lyon for {moment().format('ll')}
+          </div>
+          <div>
+            Currently displaying {numTripsFetched} trips.
+          </div>
         </div>
-        <div>
-          Currently displaying {numTripsFetched} total trips.
+        <div className="trip-list-container">
+          <div className="trip-list">
+            {tripList.map((trip, idx) => {
+              const isLastTrip = idx === tripList.length - 1;
+              return isLastTrip ? (
+                <div key={idx} ref={lastTripRef}>
+                  <Trip key={idx} {...trip} />
+                </div>
+              ) : (
+                <div key={idx}><Trip key={idx} {...trip} /></div>
+              )
+            })}
+          </div>
+          <div className="loader">{loading ? 'Loading...' : ''}</div>
         </div>
-        <div className="trip-list">
-          {tripList.map((trip, idx) => {
-            const isLastTrip = idx === tripList.length - 1;
-            return isLastTrip ? (
-              <div key={idx} ref={lastTripRef}>
-                <Trip key={idx} {...trip} />
-              </div>
-            ) : (
-              <div key={idx}><Trip key={idx} {...trip} /></div>
-            )
-          })}
-        </div>
-        <div className="loader">{loading ? 'Loading...' : ''}</div>
       </div>
     </div>
   );
