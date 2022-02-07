@@ -20,11 +20,18 @@ describe('useFetch', () => {
       return Promise.resolve(mockTripsData);
     });
 
-    const { result, rerender } = await act(async () => renderHook(() => useFetch(0))) as any;
+    const { result, rerender } = await act(async () => renderHook(
+      ({ pageNum }) => useFetch(pageNum),
+      { initialProps: { pageNum: 0 }}
+    )) as any;
 
-    rerender([0]);
+    rerender({ pageNum: 0 });
 
     expect(apiMock).toHaveBeenCalledTimes(1);
+
+    rerender({ pageNum: 1 });
+
+    expect(apiMock).toHaveBeenCalledTimes(2);
   });
 
 });
