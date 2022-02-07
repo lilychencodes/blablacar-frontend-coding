@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 
 import moment from 'moment';
 
-import useFetch from './utilities/trips';
+import useFetch from './utilities/trips-hook';
 
 import Trip from './components/Trip';
 import type { TripProps } from './components/Trip';

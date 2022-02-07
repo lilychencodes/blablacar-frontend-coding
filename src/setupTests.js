@@ -3,6 +3,7 @@
 // expect(element).toHaveTextContent(/react/i)
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom';
+import TestUtils from 'react-dom/test-utils'
 
 export const mockTripsData = {
   trips: [
@@ -29,12 +30,20 @@ export const mockTripsData = {
 }
 
 beforeEach(() => {
-  console.log('setup test before all')
   jest.spyOn(global, 'fetch').mockImplementation((): jest.MockedFunction<any> => {
     return Promise.resolve({ json: () => Promise.resolve(mockTripsData)})
   });
   setupIntersectionObserverMock();
 });
+
+// Makes sure `act()` returns the container. https://github.com/facebook/react/issues/16366#issuecomment-520794083
+export async function act(callback){
+  let ret;
+  await TestUtils.act(async () => {
+    ret = await callback();
+  });
+  return ret;
+}
 
 /**
  * From: https://stackoverflow.com/questions/44249985/js-testing-code-that-uses-an-intersectionobserver
@@ -44,7 +53,7 @@ beforeEach(() => {
  * overwrite method. `jest.fn()` mock functions can be passed here if the goal is to not only
  * mock the intersection observer, but its methods.
  */
-export function setupIntersectionObserverMock({
+function setupIntersectionObserverMock({
   root = null,
   rootMargin = '',
   thresholds = [],
