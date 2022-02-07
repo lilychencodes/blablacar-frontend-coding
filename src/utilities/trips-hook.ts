@@ -31,7 +31,7 @@ export default function useFetch(pageNum: number) {
     } catch (err) {
       console.log(err);
     }
-  }, [cursor]);
+  }, [cursor, tripList]);
 
   useEffect(() => {
     fetchTripsByQuery();
