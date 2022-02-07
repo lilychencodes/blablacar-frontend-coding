@@ -25,11 +25,11 @@ describe('useFetch', () => {
       { initialProps: { pageNum: 0 }}
     )) as any;
 
-    rerender({ pageNum: 0 });
+    await act(async () => rerender({ pageNum: 0 }));
 
     expect(apiMock).toHaveBeenCalledTimes(1);
 
-    rerender({ pageNum: 1 });
+    await act(async () => rerender({ pageNum: 1 }));
 
     expect(apiMock).toHaveBeenCalledTimes(2);
   });
